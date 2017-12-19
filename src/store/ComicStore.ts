@@ -3,6 +3,7 @@ export interface ComicStore {
         [id: number]: Comic;
     }
     selectedComicId: number | null;
+    comicPicBeingDisplayed: number | null;
 
 }
 
@@ -22,5 +23,6 @@ export const sampleComicData: ComicStore = {
             comicId: 453
         }
     },
-    selectedComicId: 1
+    selectedComicId: 1,
+    comicPicBeingDisplayed: null
 }

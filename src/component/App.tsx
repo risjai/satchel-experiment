@@ -23,7 +23,9 @@ export default class App extends React.Component<any,any>{
             <ol>
                 {list}
             </ol>
-            <h3><div>Last clicked comic id is {store.selectedComicId}</div></h3>
+            <div>Last clicked comic id is <h3>{store.selectedComicId}</h3></div>
+            <div>Comic being displayed is <h3>{store.comicPicBeingDisplayed == null ? "None" : comicBooks[store.comicPicBeingDisplayed].name}</h3></div>
+
         </div>
         )
     }

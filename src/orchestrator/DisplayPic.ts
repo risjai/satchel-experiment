@@ -1,8 +1,9 @@
 import {orchestrator} from 'satcheljs';
 import selectComic from '../action/selectComic';
+import displayComicNumber from '../action/displayComicNumber';
 import getStore from '../store/store';
 
-orchestrator(selectComic, (msg) => {
+orchestrator(selectComic, () => {
     downloadAndDisplayPic(getStore().selectedComicId)
 });
 
@@ -19,10 +20,15 @@ function downloadAndDisplayPic(id: any) {
     }
         let img = document.createElement('img');
         img.src = url;
-        // img.className = "promise-avatar-example";
         document.body.appendChild(img);
     
+        new Promise(function(resolve, reject){
+        displayComicNumber(id);
         setTimeout(() => {
           img.remove();
+          resolve();
         }, 3000);
+    }).then(
+       () => displayComicNumber(null)
+    )
 }
